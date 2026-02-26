@@ -1,22 +1,20 @@
 #include <iostream>
-using namespace std;
 #include <omp.h>
+using namespace std;
 
-int main() {
+int main()
+{
 
-   int  counter =0 ;
-    omp_set_num_threads(4);
+   int counter = 0;
 
-    // Parallel region
-    #pragma omp parallel
-    {
-       counter++ ;
-       
-        
-            cout<<"Print final value :"<<counter<<endl;
-        
-    }
+   omp_set_num_threads(4);
 
-    return 0;
+#pragma omp parallel
+   {
+      counter++;
+   }
+
+   cout << "Final Counter Value: " << counter << endl;
+
+   return 0;
 }
-
